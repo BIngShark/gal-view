@@ -29,8 +29,29 @@ const ART_ITEMS = [
   { name: 'galgame-neutral.webp', label: 'galgame 模式的女仆立绘', mime: 'image/webp' },
 ]
 
-const PYTHON = process.env.GAL_VIEW_PYTHON
-  ?? 'C:\\Users\\29673\\AppData\\Local\\Programs\\Python\\Python310\\python.exe'
+// Python 解释器自动探测：环境变量 → 常见安装位置 → PATH 上的 python。
+// 这样插件在别人机器上装好即用（对方只需 pip install edge-tts）。
+const PYTHON = (() => {
+  if (process.env.GAL_VIEW_PYTHON) return process.env.GAL_VIEW_PYTHON
+  const home = process.env.USERPROFILE || process.env.HOME || ''
+  const candidates = []
+  if (process.platform === 'win32') {
+    for (const v of ['313', '312', '311', '310', '39', '38']) {
+      candidates.push(join(home, 'AppData', 'Local', 'Programs', 'Python', 'Python' + v, 'python.exe'))
+    }
+    candidates.push(
+      'C:\\Python313\\python.exe', 'C:\\Python312\\python.exe',
+      'C:\\Python311\\python.exe', 'C:\\Python310\\python.exe',
+      join(home, 'anaconda3', 'python.exe'), join(home, 'miniconda3', 'python.exe'),
+    )
+  } else {
+    candidates.push('/usr/bin/python3', '/usr/local/bin/python3', '/opt/homebrew/bin/python3')
+  }
+  for (const item of candidates) {
+    try { if (existsSync(item)) return item } catch (e) {}
+  }
+  return process.platform === 'win32' ? 'python' : 'python3'
+})()
 const VOICE = process.env.GAL_VIEW_VOICE ?? 'zh-CN-XiaoyiNeural'
 const PITCH = process.env.GAL_VIEW_PITCH ?? '+35Hz'
 const RATE = process.env.GAL_VIEW_RATE ?? '+20%'
