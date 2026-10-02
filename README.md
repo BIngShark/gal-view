@@ -69,11 +69,27 @@ pip install edge-tts
 | `art/galgame-neutral.webp`（内置鲸鱼娘／女仆立绘，本仓库新增） | 取自 **[`@lanxing/dsh-galgame`](https://www.npmjs.com/package/@lanxing/dsh-galgame)** 的立绘（该插件自述为 *whale-girl (DeepSeek) portrait*）。**版权归原作者 lanxing 所有** |
 | `gal-scene.json` 内嵌的三张图：背景 / **角色立绘** / 对话框 | 由使用者在原版场景编辑器中放入场景。**版权归各自原作者所有**；本仓库只是随场景文件一并分发，未做任何改动 |
 | `client.js` / `index.mjs` 中本仓库新增的代码 | MIT，与上游一致 |
+| `scripts/`、`tests/`、`package.json`、`pnpm-*`、`cordis.patch.yml` | **逐字节保留上游原件**（MIT）|
+| **完整的第三方声明** | 见 **[THIRD-PARTY.md](./THIRD-PARTY.md)** |
 
 > **关于场景内嵌的三张立绘**：放入场景时未记录作者，**具体出处已不可考**，因此这里只标注"版权归原作者所有"。
 >
 > **若您是其中任何一张的作者**：请在 issue 中告知，我们会立刻补上署名（作者名 + 主页链接），或者按您的要求**从场景中移除**该图片。
 ## 许可
+
+## 构建与测试
+
+上游的 `scripts/`、`tests/` 已一并保留（与上游逐字节相同）。安装 devDependencies 后可运行：
+
+```powershell
+pnpm install
+npm run build:client   # 重建 .dsh-plugin/client.js
+npm test               # 运行 tests/ 下的用例
+```
+
+## 许可
+
+第三方组件与素材的完整声明见 **[THIRD-PARTY.md](./THIRD-PARTY.md)**。
 
 沿用原版 **MIT**，原版权声明见 [LICENSE](./LICENSE)（© 2026 Yunicon）。
 本修改版新增/改动的部分同样以 MIT 发布。
