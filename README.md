@@ -61,6 +61,16 @@ pip install edge-tts
 
 若 `pythonExists:false`，设环境变量 `GAL_VIEW_PYTHON` 指向你的 `python.exe` 即可。
 
+## 素材与署名
+
+| 素材 | 来源 / 作者 |
+| --- | --- |
+| 插件本体、场景编辑器、渲染、分页等**原版部分** | **[Ayase34/gal-view](https://github.com/Ayase34/gal-view)** —— MIT，© 2026 **Yunicon**（见 [LICENSE](./LICENSE)） |
+| `art/galgame-neutral.webp`（内置鲸鱼娘／女仆立绘，本仓库新增） | 取自 **[`@lanxing/dsh-galgame`](https://www.npmjs.com/package/@lanxing/dsh-galgame)** 的立绘（该插件自述为 *whale-girl (DeepSeek) portrait*）。**版权归原作者 lanxing 所有** |
+| `gal-scene.json` 内嵌的三张图：背景 / **角色立绘** / 对话框 | 由使用者在原版场景编辑器中放入场景。**版权归各自原作者所有**；本仓库只是随场景文件一并分发，未做任何改动 |
+| `client.js` / `index.mjs` 中本仓库新增的代码 | MIT，与上游一致 |
+
+> 如果你是上述某张立绘的作者，或希望补上/更正署名，请开 issue 或联系仓库维护者，我们会立刻处理。
 ## 许可
 
 沿用原版 **MIT**，原版权声明见 [LICENSE](./LICENSE)（© 2026 Yunicon）。
