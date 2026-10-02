@@ -32,5 +32,10 @@
     "@esbuild/win32-x64": "0.28.2",
     "esbuild": "^0.28.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BIngShark/gal-view.git"
+  },
+  "author": "修改版 by BIngShark；原版 Ayase34/gal-view（MIT, (c) 2026 Yunicon）",
   "license": "MIT"
 }
